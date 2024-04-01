@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"allowImportingTsExtensions": true,
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react-jsx",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"moduleDetection": "force",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"newLine": "lf",
+		"noFallthroughCasesInSwitch": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext",
+		"verbatimModuleSyntax": true,
+		"pretty": true,
+		"stripInternal": true,
+		"useDefineForClassFields": true
+	}
+}

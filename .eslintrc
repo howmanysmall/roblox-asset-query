@@ -1,0 +1,71 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"jsx": true,
+		"useJSXTextNode": true,
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"ignorePatterns": [
+		"/out"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"prettier",
+		"react-hooks",
+		"unicorn",
+		"react",
+		"perfectionist"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:prettier/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:react/recommended",
+		"plugin:unicorn/recommended",
+		"plugin:perfectionist/recommended-natural"
+	],
+	"rules": {
+		"prettier/prettier": [
+			"warn",
+			{
+				"semi": true,
+				"trailingComma": "all",
+				"singleQuote": false,
+				"printWidth": 120,
+				"tabWidth": 4,
+				"useTabs": true,
+				"endOfLine": "auto"
+			}
+		],
+
+		"@typescript-eslint/no-namespace": "off",
+		"no-constant-condition": "off",
+		"no-inner-declarations": "off",
+		"unicorn/no-nested-ternary": "off",
+		"unicorn/no-new-array": "off",
+		"unicorn/prefer-node-protocol": "off",
+		"unicorn/prefer-module": "off",
+		"unicorn/consistent-function-scoping": "error",
+		"unicorn/no-array-callback-reference": "error",
+		"unicorn/no-useless-undefined": "off",
+		"unicorn/no-array-reduce": "warn",
+		"unicorn/empty-brace-spaces": "off",
+		"unicorn/number-literal-case": "off",
+		"unicorn/numeric-separators-style": "off",
+		"unicorn/no-array-method-this-argument": "off",
+		"unicorn/switch-case-braces": "off",
+		"perfectionist/sort-objects": [
+			"error",
+			{
+				"type": "natural",
+				"order": "asc"
+			}
+		],
+		"perfectionist/sort-named-imports": "off",
+		"perfectionist/sort-imports": "off",
+		"perfectionist/sort-classes": "off"
+	}
+}

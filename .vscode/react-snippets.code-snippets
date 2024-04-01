@@ -1,0 +1,67 @@
+{
+	"Functional Component": {
+		"prefix": "rofc",
+		"description": "Create a Functional Component",
+		"body": [
+			"import React from \"react\";",
+			"",
+			"export function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo({ children }: React.PropsWithChildren): React.ReactElement {",
+			"\treturn <></>;",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} = React.memo(${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo);",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.displayName = \"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}\";",
+			"export default ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g};",
+			"",
+		],
+
+		"scope": "typescriptreact",
+	},
+
+	"Functional Component with Props": {
+		"prefix": "rofcp",
+		"description": "Create a Functional Component with Props",
+		"body": [
+			"import React from \"react\";",
+			"",
+			"export interface ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}Properties extends React.PropsWithChildren {}",
+			"",
+			"export function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo(properties: ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}Properties): React.ReactElement {",
+			"\treturn <></>;",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} = React.memo(${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo);",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.displayName = \"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}\";",
+			"export default ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g};",
+			"",
+		],
+
+		"scope": "typescriptreact",
+	},
+
+	"Functional Component with forwardRef / Props": {
+		"prefix": "rofcfp",
+		"description": "Create a Functional Component with forwarding reference and props",
+		"body": [
+			"import React from \"react\";",
+			"",
+			"export interface ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}Properties extends React.PropsWithChildren {",
+			"\treadonly ref?: React.Ref<${2:Instance}>,",
+			"}",
+			"",
+			"function ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}ForwardReference(properties: ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}Properties, reference: React.Ref<$2>): React.ReactElement {",
+			"\treturn <></>;",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo = React.forwardRef(${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}ForwardReference);",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo.displayName = \"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo\";",
+			"",
+			"export const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} = React.memo(${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}NoMemo);",
+			"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}.displayName = \"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}\";",
+			"export default ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g};",
+			"",
+		],
+
+		"scope": "typescriptreact",
+    },
+}
