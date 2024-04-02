@@ -22,8 +22,11 @@ export default function createRetry<T>(
 	assetType: AssetType,
 	lastKnownCursorFile: FileSink,
 ) {
+	let hasRan = false;
 	return function retry(cursor?: string) {
+		if (isNull(cursor) && hasRan) throw "We're at the end!";
 		if (isNull(cursor)) LastKnownCursor.lastKnownCursor = cursor;
+		hasRan = true;
 
 		return promiseSignedInRequest(cookie, {
 			Method: "GET",
