@@ -85,14 +85,14 @@ const pages = new Pages<AssetIdName>((cursor) => {
 const writeFile = Bun.file(write);
 const writeFileStream = writeFile.writer();
 
-async function processPages() {
+try {
 	for await (const item of pagesIterator(pages)) {
 		writeFileStream.write(`${item.assetId} - ${item.name}\n`);
 		writeFileStream.flush();
 	}
+} catch (error) {
+	console.warn(`failed to process pages: ${error}`);
 }
-
-await processPages();
 
 console.log("\rclosing B%)");
 await writeFileStream.end();
