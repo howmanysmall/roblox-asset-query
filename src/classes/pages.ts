@@ -23,7 +23,7 @@ export default class Pages<T> {
 
 	public async getCurrentPage() {
 		if (!this.currentPage) await this.advanceToNextPageAsync();
-		return this.currentPage;
+		return this.currentPage!;
 	}
 
 	private currentPage?: ReadonlyArray<T>;

@@ -13,17 +13,13 @@
 	"plugins": [
 		"@typescript-eslint",
 		"prettier",
-		"react-hooks",
 		"unicorn",
-		"react",
 		"perfectionist"
 	],
 	"extends": [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
-		"plugin:react-hooks/recommended",
-		"plugin:react/recommended",
 		"plugin:unicorn/recommended",
 		"plugin:perfectionist/recommended-natural"
 	],

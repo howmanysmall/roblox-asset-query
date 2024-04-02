@@ -11,8 +11,8 @@
 	"eslint.run": "onType",
 	"eslint.format.enable": true,
 	"editor.codeActionsOnSave": {
-		"source.addMissingImports": "explicit",
-		"source.organizeImports": "explicit",
+		// "source.addMissingImports": "explicit",
+		// "source.organizeImports": "explicit",
 		// "source.fixAll.eslint": "explicit"
 	}
 }
