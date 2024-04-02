@@ -1,12 +1,12 @@
 import prompts from "prompts";
 import AssetType from "./meta/asset-type";
 import { LastKnownCursor } from "./utilities/get-last-known-cursor";
-import { AssetIdName, promiseXsrf } from "./utilities/roblox-api-utilities";
 import Pages, { type PagesResponse } from "./classes/pages";
 import createRetry from "./utilities/create-retry";
 import promiseRetry from "./utilities/promise-retry";
 import AssetTypeMeta from "./meta/asset-type-meta";
 import pagesIterator from "./utilities/pages-iterator";
+import type { AssetIdName } from "./utilities/roblox-api-utilities";
 
 // biome-ignore lint/complexity/useLiteralKeys: necessary
 const foundRobloxCookie = Bun.env["COOKIE"];
