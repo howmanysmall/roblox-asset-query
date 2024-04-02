@@ -41,7 +41,7 @@ export default function createRetry<T>(
 						try {
 							lastKnownCursorFile.write(`${cursor}\n`);
 						} catch (error) {
-							console.warn(`failed to write file - ${error}`);
+							console.warn(`failed to write file ${cursor} - ${error}`);
 						} finally {
 							await lastKnownCursorFile.flush();
 						}
@@ -59,7 +59,7 @@ export default function createRetry<T>(
 						try {
 							lastKnownCursorFile.write(`${cursor}\n`);
 						} catch (error) {
-							console.warn(`failed to write file - ${error}`);
+							console.warn(`failed to write file ${cursor} - ${error}`);
 						} finally {
 							await lastKnownCursorFile.flush();
 						}
