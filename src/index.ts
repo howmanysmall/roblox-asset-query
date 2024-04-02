@@ -27,7 +27,6 @@ async function getRobloxCookie() {
 }
 
 const { robloxCookie } = await getRobloxCookie();
-
 const { assetType } = await prompts({
 	choices: [
 		{
@@ -65,11 +64,6 @@ async function getContinueFrom() {
 
 const { continueFrom } = await getContinueFrom();
 
-// console.log(assetType);
-// console.log(robloxCookie);
-// console.log(write);
-// console.log(continueFrom);
-
 const retry = createRetry<PagesResponse<AssetIdName>>(
 	robloxCookie,
 	AssetTypeMeta[assetType as AssetType].url,
@@ -92,8 +86,8 @@ try {
 	}
 } catch (error) {
 	console.warn(`failed to process pages: ${error}`);
+} finally {
+	console.log("closing B^)");
+	await writeFileStream.end();
+	await lastKnownCursorStream.end();
 }
-
-console.log("\rclosing B%)");
-await writeFileStream.end();
-await lastKnownCursorStream.end();
