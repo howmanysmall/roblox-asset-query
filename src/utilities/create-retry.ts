@@ -22,15 +22,17 @@ export default function createRetry<T>(
 	assetType: AssetType,
 	lastKnownCursorFile: FileSink,
 ) {
-	let hasRan = false;
+	// let hasRan = false;
 	return function retry(cursor?: string) {
-		if (isNull(cursor) && hasRan) throw "We're at the end!";
-		if (isNull(cursor)) LastKnownCursor.lastKnownCursor = cursor;
-		hasRan = true;
+		// if (isNull(cursor) && hasRan) throw "We're at the end!";
+		if (!isNull(cursor)) LastKnownCursor.lastKnownCursor = cursor;
+		// hasRan = true;
+
+		const queryUrl = `${url}${isNull(cursor) ? "" : cursor}`;
 
 		return promiseSignedInRequest(cookie, {
 			Method: "GET",
-			Url: `${url}${cursor === undefined ? "" : cursor}`,
+			Url: queryUrl,
 		}).then((responseDictionary) => {
 			if (!responseDictionary.ok) {
 				const retryAfter = getWithoutCase(responseDictionary.headers, "retry-after");
@@ -46,7 +48,7 @@ export default function createRetry<T>(
 							await lastKnownCursorFile.flush();
 						}
 
-					throw `Failed to get ${assetType}: ${responseDictionary.status} (${responseDictionary.statusText}) (we're on cursor ${cursor})`;
+					throw `Failed to get ${assetType} @ ${queryUrl}: ${responseDictionary.status} (${responseDictionary.statusText}) (we're on cursor ${cursor})`;
 				});
 			}
 
@@ -64,7 +66,7 @@ export default function createRetry<T>(
 							await lastKnownCursorFile.flush();
 						}
 
-					throw `Failed to get ${assetType}: ${responseDictionary.status} (${responseDictionary.statusText}) (we're on cursor ${cursor})`;
+					throw `Failed to get ${assetType} @ ${queryUrl}: ${responseDictionary.status} (${responseDictionary.statusText}) (we're on cursor ${cursor})`;
 				});
 			}
 
